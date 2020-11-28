@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moonrise <moonrise@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hstarr <hstarr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/02 20:01:23 by moonrise          #+#    #+#             */
-/*   Updated: 2020/05/18 15:16:29 by moonrise         ###   ########.fr       */
+/*   Created: 2020/09/14 10:59:49 by hstarr            #+#    #+#             */
+/*   Updated: 2020/11/26 21:30:05 by hstarr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 void		*ft_memccpy(void *dest, const void *source, int ch, size_t count)
 {
 	unsigned char	sym;
-	unsigned char	*d;
-	unsigned char	*s;
+	unsigned char	*dest_t;
+	unsigned char	*source_t;
 
 	sym = (unsigned char)ch;
-	d = (unsigned char *)dest;
-	s = (unsigned char *)source;
+	dest_t = (unsigned char *)dest;
+	source_t = (unsigned char *)source;
 	while (count--)
 	{
-		*d++ = *s++;
-		if (*(d - 1) == sym)
-			return (d);
+		*dest_t++ = *source_t++;
+		if (*(dest_t - 1) == sym)
+			return (dest_t);
 	}
 	return (NULL);
 }

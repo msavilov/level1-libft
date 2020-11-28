@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moonrise <moonrise@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hstarr <hstarr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/17 21:55:29 by moonrise          #+#    #+#             */
-/*   Updated: 2020/05/17 22:04:40 by moonrise         ###   ########.fr       */
+/*   Created: 2020/09/14 10:31:05 by hstarr            #+#    #+#             */
+/*   Updated: 2020/11/26 21:01:40 by hstarr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstadd_back(t_list **lst, t_list *nw)
+void		ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list		*p;
 
@@ -21,8 +21,8 @@ void		ft_lstadd_back(t_list **lst, t_list *nw)
 		p = *lst;
 		while (p->next)
 			p = p->next;
-		p->next = nw;
+		p->next = new;
 	}
 	else if (lst)
-		*lst = nw;
+		*lst = new;
 }

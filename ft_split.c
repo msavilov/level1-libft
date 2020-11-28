@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctobias <ctobias@student.21.ru>            +#+  +:+       +#+        */
+/*   By: hstarr <hstarr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/15 19:33:26 by moonrise          #+#    #+#             */
-/*   Updated: 2020/05/30 13:45:39 by ctobias          ###   ########.fr       */
+/*   Created: 2020/09/14 11:32:29 by hstarr            #+#    #+#             */
+/*   Updated: 2020/11/26 21:59:48 by hstarr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,67 +17,67 @@ static int		is_delim(char c, char d)
 	return (c == d);
 }
 
-static int		count_words(const char *str, char d)
+static int		count_words(const char *s, char d)
 {
 	int count;
 
 	count = 0;
-	while (*str)
+	while (*s)
 	{
-		while (*str && is_delim(*str, d))
-			str++;
-		if (*str && !is_delim(*str, d))
+		while (*s && is_delim(*s, d))
+			s++;
+		if (*s && !is_delim(*s, d))
 		{
 			count++;
-			while (*str && !is_delim(*str, d))
-				str++;
+			while (*s && !is_delim(*tr, d))
+				s++;
 		}
 	}
 	return (count);
 }
 
-static char		*malloc_word(const char *str, char d)
+static char		*malloc_word(const char *s, char d)
 {
 	char	*word;
 	int		i;
 
 	i = 0;
-	while (str[i] && !is_delim(str[i], d))
+	while (s[i] && !is_delim(s[i], d))
 		i++;
 	word = (char *)malloc(sizeof(char) * (i + 1));
 	if (!word)
 		return (NULL);
 	i = 0;
-	while (str[i] && !is_delim(str[i], d))
+	while (s[i] && !is_delim(s[i], d))
 	{
-		word[i] = str[i];
+		word[i] = s[i];
 		i++;
 	}
 	word[i] = '\0';
 	return (word);
 }
 
-char			**ft_split(char const *str, char c)
+char			**ft_split(char const *s, char c)
 {
 	char	**arr;
 	int		i;
 
-	if (!str)
+	if (!s)
 		return (NULL);
-	arr = (char **)malloc(sizeof(char *) * (count_words(str, c) + 1));
+	arr = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!arr)
 		return (NULL);
 	i = 0;
-	while (*str)
+	while (*s)
 	{
-		while (*str && is_delim(*str, c))
-			str++;
-		if (*str && !is_delim(*str, c))
+		while (*s && is_delim(*s, c))
+			s++;
+		if (*s && !is_delim(*s, c))
 		{
-			arr[i] = malloc_word(str, c);
+			arr[i] = malloc_word(s, c);
 			i++;
-			while (*str && !is_delim(*str, c))
-				str++;
+			while (*s && !is_delim(*s, c))
+				s++;
 		}
 	}
 	arr[i] = NULL;

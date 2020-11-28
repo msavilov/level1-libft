@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moonrise <moonrise@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hstarr <hstarr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/02 18:30:01 by moonrise          #+#    #+#             */
-/*   Updated: 2020/05/02 18:30:04 by moonrise         ###   ########.fr       */
+/*   Created: 2020/09/14 11:47:12 by hstarr            #+#    #+#             */
+/*   Updated: 2020/11/26 22:36:41 by hstarr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@ size_t		ft_strlen(const char *str)
 	size_t k;
 
 	k = 0;
-	while (*str)
+	if (str)
 	{
-		k++;
-		str++;
+		while (*str)
+		{
+			k++;
+			str++;
+		}
 	}
 	return (k);
 }

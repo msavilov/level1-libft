@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moonrise <moonrise@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hstarr <hstarr@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/17 21:40:38 by moonrise          #+#    #+#             */
-/*   Updated: 2020/05/17 22:32:52 by moonrise         ###   ########.fr       */
+/*   Created: 2020/09/14 10:35:32 by hstarr            #+#    #+#             */
+/*   Updated: 2020/11/26 21:07:09 by hstarr           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *nw)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (lst)
 	{
-		if (nw)
-			nw->next = *lst;
-		*lst = nw;
+		if (new)
+			new->next = *lst;
+		*lst = new;
 	}
 }
